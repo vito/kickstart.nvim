@@ -88,6 +88,7 @@ return {
     ft = { 'go', 'gomod' },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
+  'pbrisbin/vim-mkdir', -- auto-mkdir parent dirs for new file
   {
     'kylechui/nvim-surround',
     version = '*', -- Use for stability; omit to use `main` branch for the latest features
