@@ -920,6 +920,8 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 
+vim.opt.background = os.getenv 'LIGHT' == '1' and 'light' or 'dark'
+
 -- keymaps
 require 'custom.keymaps'
 
