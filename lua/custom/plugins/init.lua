@@ -90,21 +90,21 @@ return {
   'tpope/vim-vinegar', -- press - to go to parent dir
   {
     -- floating term
-    'voldikss/vim-floaterm',
+    'numToStr/FTerm.nvim',
     config = function()
-      -- Floaterm settings
-      vim.g.floaterm_shell = 'fish'
-      vim.g.floaterm_borderchars = '─│─│╭╮╯╰'
-      vim.g.floaterm_width = 0.9
-      vim.g.floaterm_height = 0.9
-      vim.g.floaterm_giteditor = false
+      require('FTerm').setup {
+        cmd = 'fish',
+        border = 'rounded',
+        dimensions = {
+          height = 0.9,
+          width = 0.9,
+          x = 0.5,
+          y = 0.5,
+        },
+      }
 
-      -- Keymaps to toggle Floaterm
-      vim.keymap.set('n', '<C-t>', ':FloatermToggle<CR>', { desc = 'Toggle Terminal (open)' })
-      vim.keymap.set('t', '<C-t>', '<C-\\><C-n>:FloatermToggle<CR>', { desc = 'Toggle Terminal (close)' })
-
-      -- Highlight FloatermBorder as Comment
-      vim.cmd 'highlight! link FloatermBorder Comment'
+      vim.keymap.set('n', '<C-t>', '<CMD>lua require("FTerm").toggle()<CR>')
+      vim.keymap.set('t', '<C-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
     end,
   },
   {
