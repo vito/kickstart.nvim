@@ -6,7 +6,18 @@ return {
   'tpope/vim-abolish', -- :%Subvert etc.
   'tpope/vim-obsession', -- Session.vim
   'tpope/vim-eunuch', -- :Rename etc.
-  'github/copilot.vim', -- existential crisis
+  {
+    -- existential crisis, but FASTER
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('copilot').setup {
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      }
+    end,
+  },
   {
     -- close background buffers
     'kazhala/close-buffers.nvim',
