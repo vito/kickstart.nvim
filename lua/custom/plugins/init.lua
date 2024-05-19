@@ -137,7 +137,13 @@ return {
       'nvim-treesitter/nvim-treesitter',
     },
     config = function()
-      require('go').setup()
+      require('go').setup {
+        lsp_codelens = false,
+        lsp_keymaps = false,
+        lsp_inlay_hints = {
+          enable = false,
+        },
+      }
       local format_sync_grp = vim.api.nvim_create_augroup('goimports', {})
       vim.api.nvim_create_autocmd('BufWritePre', {
         pattern = '*.go',
