@@ -19,6 +19,58 @@ return {
     end,
   },
   {
+    'nvim-lualine/lualine.nvim',
+    dependencies = {
+      'AndreM222/copilot-lualine',
+    },
+    config = function()
+      require('lualine').setup {
+        options = {
+          icons_enabled = false,
+        },
+        sections = {
+          lualine_b = { 'diff', 'diagnostics' },
+          lualine_c = {
+            {
+              'filename',
+              path = 1, -- relative path
+            },
+          },
+          lualine_x = {
+            {
+              'copilot',
+              -- Default values
+              symbols = {
+                status = {
+                  icons = {
+                    enabled = 'AI:E',
+                    sleep = 'AI:S', -- auto-trigger disabled
+                    disabled = 'AI:D',
+                    warning = 'AI:W',
+                    unknown = 'AI:?',
+                  },
+                },
+                spinners = require('copilot-lualine.spinners').dots,
+              },
+              show_loading = true,
+            },
+            'encoding',
+            'fileformat',
+            'filetype',
+          },
+        },
+        inactive_sections = {
+          lualine_c = {
+            {
+              'filename',
+              path = 1, -- relative path
+            },
+          },
+        },
+      }
+    end,
+  },
+  {
     -- close background buffers
     'kazhala/close-buffers.nvim',
     config = function()

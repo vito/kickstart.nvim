@@ -781,6 +781,8 @@ require('lazy').setup({
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
+    -- so far i prefer all of the alternatives, e.g. lualine, nvim-surround
+    enabled = false,
     config = function()
       -- Better Around/Inside textobjects
       --
