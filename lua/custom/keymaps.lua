@@ -8,7 +8,7 @@ vim.keymap.set('n', 'k', 'gk', { desc = 'Move up visual line', noremap = true, s
 
 -- save on enter
 vim.keymap.set('n', '<CR>', function()
-  if vim.api.nvim_buf_get_option(0, 'buftype') == 'quickfix' then
+  if vim.bo.buftype == 'quickfix' then
     return '<CR>'
   else
     return ':w<CR>'
