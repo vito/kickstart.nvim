@@ -74,7 +74,7 @@ return {
     -- close background buffers
     'kazhala/close-buffers.nvim',
     config = function()
-      vim.keymap.set('n', '<leader>x', ':Bdelete<CR>')
+      vim.keymap.set('n', '<leader>x', ':BDelete hidden<CR>')
     end,
   },
   'Olical/vim-enmasse', -- best find and replace
