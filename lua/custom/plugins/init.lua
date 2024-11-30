@@ -169,4 +169,5 @@ return {
     end,
   },
   'APZelos/blamer.nvim',
+  'sbdchd/neoformat',
 }
