@@ -426,6 +426,9 @@ require('lazy').setup({
           live_grep = {
             additional_args = { '--hidden' },
           },
+          colorscheme = {
+            enable_preview = true,
+          },
         },
       }
 
