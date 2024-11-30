@@ -151,6 +151,7 @@ return {
           enable = false,
         },
       }
+      vim.keymap.set('n', '<leader>gi', ':GoImports<CR>', { desc = 'Format Go imports' })
     end,
     event = { 'CmdlineEnter' },
     ft = { 'go', 'gomod' },
