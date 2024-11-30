@@ -3,6 +3,33 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  -- color schemes
+  'savq/melange-nvim',
+  'AlexvZyl/nordic.nvim',
+  'rebelot/kanagawa.nvim',
+  'pineapplegiant/spaceduck',
+  'oahlen/iceberg.nvim',
+  'EdenEast/nightfox.nvim',
+  {
+    'zenbones-theme/zenbones.nvim',
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    dependencies = 'rktjmp/lush.nvim',
+  },
+  {
+    'sainnhe/everforest',
+    -- lazy = false,
+    -- priority = 1000,
+    config = function()
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.everforest_enable_italic = true
+      vim.g.everforest_background = 'hard'
+      -- vim.cmd.colorscheme 'everforest'
+    end,
+  },
+
   'tpope/vim-abolish', -- :%Subvert etc.
   'tpope/vim-obsession', -- Session.vim
   'tpope/vim-eunuch', -- :Rename etc.
@@ -21,9 +48,6 @@ return {
   },
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = {
-      'AndreM222/copilot-lualine',
-    },
     config = function()
       require('lualine').setup {
         options = {
@@ -38,23 +62,6 @@ return {
             },
           },
           lualine_x = {
-            {
-              'copilot',
-              -- Default values
-              symbols = {
-                status = {
-                  icons = {
-                    enabled = 'AI:E',
-                    sleep = 'AI:S', -- auto-trigger disabled
-                    disabled = 'AI:D',
-                    warning = 'AI:W',
-                    unknown = 'AI:?',
-                  },
-                },
-                spinners = require('copilot-lualine.spinners').dots,
-              },
-              show_loading = true,
-            },
             'encoding',
             'fileformat',
             'filetype',
