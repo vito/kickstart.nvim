@@ -98,21 +98,21 @@ return {
   'tpope/vim-vinegar', -- press - to go to parent dir
   {
     -- floating term
-    'numToStr/FTerm.nvim',
+    'voldikss/vim-floaterm',
     config = function()
-      require('FTerm').setup {
-        cmd = 'fish',
-        border = 'rounded',
-        dimensions = {
-          height = 0.9,
-          width = 0.9,
-          x = 0.5,
-          y = 0.5,
-        },
-      }
+      -- FloatTerm Configuration
+      vim.g.floaterm_shell = 'fish'
+      vim.g.floaterm_borderchars = '─│─│╭╮╯╰'
+      vim.g.floaterm_width = 0.9
+      vim.g.floaterm_height = 0.9
+      vim.g.floaterm_giteditor = false
 
-      vim.keymap.set('n', '<C-t>', '<CMD>lua require("FTerm").toggle()<CR>')
-      vim.keymap.set('t', '<C-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+      -- Keymaps for FloatTerm
+      vim.keymap.set('n', '<C-t>', ':FloatermToggle<CR>', { silent = true })
+      vim.keymap.set('t', '<C-t>', '<C-\\><C-n>:FloatermToggle<CR>', { silent = true })
+
+      -- Highlight FloatTerm border
+      vim.cmd 'highlight! link FloatermBorder Comment'
     end,
   },
   {
