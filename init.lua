@@ -393,6 +393,7 @@ require('lazy').setup({
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local actions = require 'telescope.actions'
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -410,8 +411,9 @@ require('lazy').setup({
           },
           mappings = {
             i = {
-              ['<C-a>'] = require('telescope.actions').select_all,
+              ['<C-a>'] = actions.select_all,
               ['<C-h>'] = 'which_key',
+              ['<C-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
             },
           },
         },
