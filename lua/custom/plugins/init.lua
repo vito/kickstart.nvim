@@ -96,7 +96,16 @@ return {
     end,
   },
   'kristijanhusak/vim-dadbod-ui', -- db query ui
-  'tpope/vim-vinegar', -- press - to go to parent dir
+  -- 'tpope/vim-vinegar', -- press - to go to parent dir
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    dependencies = { { 'echasnovski/mini.icons', opts = {} } },
+    config = function()
+      require('oil').setup()
+      vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+    end,
+  },
   {
     -- floating term
     'voldikss/vim-floaterm',
