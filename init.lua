@@ -338,6 +338,7 @@ require('lazy').setup({
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
     },
+    enabled = not vim.g.vscode,  -- VSCode has its own keybind display
   },
 
   -- NOTE: Plugins can specify dependencies.
@@ -722,6 +723,7 @@ require('lazy').setup({
         },
       }
     end,
+    enabled = not vim.g.vscode,  -- VSCode has its own LSP
   },
 
   { -- Autoformat
