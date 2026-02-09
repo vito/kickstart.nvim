@@ -77,7 +77,7 @@ return {
         },
       }
     end,
-    enabled = not vim.g.vscode,  -- VSCode has its own statusline
+    enabled = not vim.g.vscode, -- VSCode has its own statusline
   },
   {
     -- close background buffers
@@ -124,7 +124,7 @@ return {
       -- Highlight FloatTerm border
       vim.cmd 'highlight! link FloatermBorder Comment'
     end,
-    enabled = not vim.g.vscode,  -- VSCode has its own terminal
+    enabled = not vim.g.vscode, -- VSCode has its own terminal
   },
   {
     -- run tests
@@ -138,7 +138,7 @@ return {
       vim.keymap.set('n', '<leader>tl', ':TestLast<CR>', { desc = 'Run Last Test' })
       vim.keymap.set('n', '<leader>tg', ':TestVisit<CR>', { desc = 'Go to Test' })
     end,
-    enabled = not vim.g.vscode,  -- VSCode has built-in test runner
+    enabled = not vim.g.vscode, -- VSCode has built-in test runner
   },
   {
     'jiaoshijie/undotree',
@@ -147,7 +147,7 @@ return {
     keys = { -- load the plugin only when using it's keybinding:
       { '<leader>u', "<cmd>lua require('undotree').toggle()<cr>" },
     },
-    enabled = not vim.g.vscode,  -- VSCode has its own undo history
+    enabled = not vim.g.vscode, -- VSCode has its own undo history
   },
   {
     'ray-x/go.nvim',
@@ -169,7 +169,7 @@ return {
     event = { 'CmdlineEnter' },
     ft = { 'go', 'gomod' },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
-    enabled = not vim.g.vscode,  -- VSCode's Go extension is sufficient
+    enabled = not vim.g.vscode, -- VSCode's Go extension is sufficient
   },
   'pbrisbin/vim-mkdir', -- auto-mkdir parent dirs for new file
   {
@@ -195,6 +195,13 @@ return {
       -- 'echasnovski/mini.pick', -- optional
     },
     config = true,
-    enabled = not vim.g.vscode,  -- VSCode has built-in git features
+    enabled = not vim.g.vscode, -- VSCode has built-in git features
+  },
+  {
+    'https://codeberg.org/vito/dang.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('dang').setup()
+    end,
   },
 }
